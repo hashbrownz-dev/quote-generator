@@ -1,35 +1,38 @@
 let quotes = [
-    `I live my life a quarter mile at a time`,
-    `I said a ten-second car, not a ten-minute car`,
-    `You can have any brew you want... as long as it's a Corona.`,
-    `You almost had me? You never had me - you never had your car!`,
-    `I don't have friends. I have family.`,
-    `It don't matter if you win by an inch or a mile. Winning's winning.`
+    `What a horrible night to have a curse.`,
+    `You now prossess Dracula's Rib.`,
+    `The morning sun has vanquished the horrible night.`,
+    `Rumor has it, the ferry-man at Dead River loves garlic.`,
+    `Laurels in your soup enhance its aroma.`,
+    `Sure, I'll take you to a good place. Heh!! Heh!! Heh!!`,
+    `Take my daughter, please!!`,
+    `A flame is on top of the 6th tree in Denis Woods.`,
+    `A magic potion will destroy the wall of evil.`,
+    `You look pale, my son. You must rest in the church.`
   ];
   
 document.addEventListener("DOMContentLoaded", function(event) {
     // Random quote of the day generator
     const randomQuote = function() {
-    document.querySelector('#quote-of-the-day').textContent = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
+        document.querySelector('#quote-of-the-day').textContent = `"${quotes[Math.floor(Math.random() * quotes.length)]}"`;
     };
     randomQuote();
     
     // Do all of your work inside the document.addEventListener  
     
     // Part 1
-    document.querySelector('#main-title').textContent = 'Something Shorter'
+    document.querySelector('#main-title').textContent = "Simon's Quotes"
     
     // Part 2
-    document.querySelector('body').style.backgroundColor = 'red'
+    document.querySelector('body').style.backgroundColor = 'black'
     
     // Part 3
-    const favoriteThings = document.querySelectorAll('#favorite-things > li')
-
-    document.querySelector('#favorite-things').removeChild(favoriteThings[favoriteThings.length - 1])
+    const weapons = document.querySelectorAll('.weapon');
+    document.querySelector('#weapons > ul').removeChild(weapons[weapons.length-1]);
     
     // Part 4
     document.querySelectorAll('.special-title').forEach((item) => {
-        item.style.fontSize = '2rem'
+        item.style.fontSize = '2em'
     });
     
     // Part 5
@@ -42,25 +45,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // Part 6
     const li = document.createElement('li')
     li.textContent = 'Laurelton'
-    document.querySelector('#past-races').appendChild(li)
+    //document.querySelector('#past-races').appendChild(li)
     
     // Part 7
-    const blogPost = document.createElement('div')
-    blogPost.classList.add('blog-post')
-    const heading = document.createElement('h2')
-    heading.textContent = 'Laurelton'
-    const pEl = document.createElement('p')
-    pEl.textContent = 'My hometown in Queens, NY'
+    // const blogPost = document.createElement('div')
+    // blogPost.classList.add('blog-post')
+    // const heading = document.createElement('h2')
+    // heading.textContent = 'Laurelton'
+    // const pEl = document.createElement('p')
+    // pEl.textContent = 'My hometown in Queens, NY'
 
-    document.querySelector('.main').appendChild(blogPost)
+    // document.querySelector('main').appendChild(blogPost)
 
-    blogPost.appendChild(heading)
-    blogPost.appendChild(pEl)
+    // blogPost.appendChild(heading)
+    // blogPost.appendChild(pEl)
     
     // Part 8
-    document.querySelector('#quote-title').addEventListener('click', (evt) => {
-    randomQuote()
-    });
+    document.querySelector('button').addEventListener('click', () => {
+        randomQuote();
+    })
     
     // Part 9
 
