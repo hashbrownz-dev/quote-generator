@@ -81,9 +81,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         {capture:true})
     });
 
-    const horcruxImages = document.getElementById('horcrux-img');
-    const horcrux = document.querySelector('#horcrux > ul');
-    horcrux.addEventListener('mouseover', event => {
+    const horcruxList = document.querySelector('#horcrux > ul');
+    horcruxList.addEventListener('mouseover', event => {
         let image = document.createElement('img');
         image.alt = event.target.textContent;
         switch (event.target.textContent){
@@ -103,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 image.src=`images/heart.png`;
                 break;
             default:
+                image.src = `images/nail.png`;
                 break;
         }
         const container = document.getElementById('horcrux-img');
@@ -111,5 +111,63 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         container.appendChild(image);
     });
+
+    const weaponsList = document.querySelector('#weapons > ul');
+    weaponsList.addEventListener('mouseover', event => {
+        let image = document.createElement('img');
+        image.alt = event.target.textContent;
+        switch (event.target.textContent){
+            case 'Holy Water':
+                image.src = 'images/holywater.png';
+                break;
+            case 'Sacred Flame':
+                image.src = 'images/flame.png';
+                break;
+            case 'The Diamond':
+                image.src = 'images/diamond.png';
+                break;
+            case 'The Dagger':
+                image.src = 'images/dagger.png';
+                break;
+            case 'Silver Knife':
+                image.src = 'images/silverKnife.png';
+                break;
+            case 'Gold Knife':
+                image.src = 'images/goldKnife.png';
+                break;
+            case 'Oak Stake':
+                image.src = 'images/stake.png';
+                break;
+            case 'Garlic':
+                image.src = 'images/garlic.png';
+                break;
+            case 'Laurels':
+                image.src = 'images/laurel.png';
+                break;
+            case 'Leather Whip':
+                image.src = 'images/whip.png';
+                break;
+            case 'Thorn Whip':
+                image.src = 'images/thornWhip.png';
+                break;
+            case 'Chain Whip':
+                image.src = 'images/chainWhip.png';
+                break;
+            case 'Morning Star':
+                image.src = 'images/MorningStar.png';
+                break;
+            case 'Flame Whip':
+                image.src = 'images/flameWhip.png';
+                break;
+            default:
+                image.src = 'images/whip.png';
+                break;
+        }
+        const container = document.getElementById('weapon-img');
+        while(container.hasChildNodes()){
+            container.childNodes[0].remove();
+        }
+        container.appendChild(image);
+    })
   
 });
