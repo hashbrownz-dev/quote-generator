@@ -67,19 +67,37 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
     // Part 9
 
+    // document.querySelectorAll('.boss').forEach((item) => {
+    //     item.addEventListener('mouseout', (evt) => {
+    //         //evt.stopPropagation();
+    //         evt.currentTarget.classList.toggle('invert')
+    //     }
+    // ,
+    // {capture:true})
+    //     item.addEventListener('mouseenter', (evt) => {
+    //     //evt.stopPropagation()
+    //     evt.currentTarget.classList.toggle('invert')
+    //     },
+    //     {capture:true})
+    // });
+
+    // document.querySelectorAll('.boss').forEach((item) => {
+    //     item.addEventListener('mouseover', event => {
+    //         event.currentTarget.classList.toggle('invert');
+    //     })
+    // });
+
     document.querySelectorAll('.boss').forEach((item) => {
-        item.addEventListener('mouseout', (evt) => {
-            //evt.stopPropagation();
-            evt.currentTarget.classList.toggle('invert')
-        }
-    ,
-    {capture:true})
-        item.addEventListener('mouseenter', (evt) => {
-        //evt.stopPropagation()
-        evt.currentTarget.classList.toggle('invert')
-        },
-        {capture:true})
-    });
+        const rect = item.getBoundingClientRect();
+        item.addEventListener('mouseenter', (event) => {
+            event.currentTarget.classList.toggle('invert');
+        })
+        item.addEventListener('mouseout', event => {
+            if(!((event.x > rect.x && event.x < rect.x + rect.height) && (event.y > rect.y && event.y < rect.y + rect.height))){
+                event.currentTarget.classList.toggle('invert');
+            }
+        })
+    })
 
     const horcruxList = document.querySelector('#horcrux > ul');
     horcruxList.addEventListener('mouseover', event => {
