@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
     // Part 4
     document.querySelectorAll('.special-title').forEach((item) => {
-        item.style.fontSize = '2em'
+        item.style.fontSize = '1.5em'
     });
     
     // Part 5
@@ -67,14 +67,49 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
     // Part 9
 
-    document.querySelectorAll('.blog-post').forEach((item) => {
+    document.querySelectorAll('.boss').forEach((item) => {
         item.addEventListener('mouseout', (evt) => {
-            evt.currentTarget.classList.toggle('purple')
-        })
+            //evt.stopPropagation();
+            evt.currentTarget.classList.toggle('invert')
+        }
+    ,
+    {capture:true})
         item.addEventListener('mouseenter', (evt) => {
-        evt.stopPropagation()
-        evt.currentTarget.classList.toggle('red')
-        })
+        //evt.stopPropagation()
+        evt.currentTarget.classList.toggle('invert')
+        },
+        {capture:true})
+    });
+
+    const horcruxImages = document.getElementById('horcrux-img');
+    const horcrux = document.querySelector('#horcrux > ul');
+    horcrux.addEventListener('mouseover', event => {
+        let image = document.createElement('img');
+        image.alt = event.target.textContent;
+        switch (event.target.textContent){
+            case "Dracula's Nail":
+                image.src=`images/nail.png`;
+                break;
+            case "Dracula's Eye":
+                image.src=`images/eye.png`;
+                break;
+            case "Dracula's Rib":
+                image.src=`images/rib.png`;
+                break;
+            case "Dracula's Ring":
+                image.src=`images/ring.png`;
+                break;
+            case "Dracula's Heart":
+                image.src=`images/heart.png`;
+                break;
+            default:
+                break;
+        }
+        const container = document.getElementById('horcrux-img');
+        while(container.hasChildNodes()){
+            container.childNodes[0].remove();
+        }
+        container.appendChild(image);
     });
   
 });
